@@ -1,4 +1,5 @@
 import { deleteTaskListener } from './listener.js';
+
 function createHeadTask(){
     const headTask = document.createElement('div');
     headTask.classList.add('headTask');
@@ -12,11 +13,12 @@ function createDeleteTask(){
 }
 
 export function createTask(taskDatas){
+    const { inputTextValue } = taskDatas;
     const task = document.createElement('div');
     task.classList.add('task');
     const headTask = createHeadTask();
     const deleteTask = createDeleteTask();
-    deleteTaskListener(deleteTask); 
+    deleteTaskListener(deleteTask, `Delete ${inputTextValue}`); 
     Object.keys(taskDatas)
     .filter(nameDetailTask => nameDetailTask !== 'description')
     .forEach(nameDetailTask => {

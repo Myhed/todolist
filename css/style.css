@@ -12,10 +12,6 @@
         opacity: 1;
         transform: translateY(175px);
     }
-    100% {
-        opacity: 1;
-        transform: translateY(175px);
-    }
 }
 
 * {
@@ -84,6 +80,7 @@ h1{
 .deleteTask {
     font-family: 'FontAwesome';
 }
+
 .deleteTask::before{
     content: "\f1f8";
     position: absolute;
@@ -131,10 +128,9 @@ form button {
 
 #ActionTriggered{
     position: absolute;
-    background: black;
+    background: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
-    opacity: 0.5;
     top:0;
     left:0;
     right: 0;
@@ -147,10 +143,47 @@ form button {
     padding: 15px;
     height: 100px;
     width: 25%;
-    position: absolute;
-    z-index:380;
     box-shadow: 3px 3px 5px rgba(0,0,0,1);
-    animation: actionTriggered 2s forwards;
+    display: flex;
+    flex-direction: column;
+    animation-fill-mode: forwards;
+    justify-content: space-between;
+}
+.popup-open {
+    animation: actionTriggered 2s;
+    animation-direction: normal;
+}
+.popup-close {
+    animation: actionTriggered 3s;
+    animation-direction: reverse;
+}
+
+#popupHeader {
+    font-weight: bold;
+    padding:6px;
+    border-bottom: 1px solid #ccc;
+}
+
+#popupFooter {
+    align-self: flex-end;
+    padding: 15px;
+}
+
+#popupFooter > button {
+    margin-right:10px;
+    border:none;
+    border-radius: 5px;
+    padding: 6px 6px;
+    color: white;
+    cursor: pointer;
+}
+
+#popupFooter :nth-child(1){
+    background: darkcyan;
+}
+
+#popupFooter :nth-child(2){
+    background: tomato;
 }
 
 form button:hover{
